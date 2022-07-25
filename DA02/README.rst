@@ -8,11 +8,11 @@ On NERSC
 
 Set up data::
 
-  mkdir -p ${CSCRATCH}/legacysim/dr9/data/
-  cp /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/ccds-annotated-* ${CSCRATCH}/legacysim/dr9/data/
-  cp /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/survey-* ${CSCRATCH}/legacysim/dr9/data/
-  ln -s /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/calib/ ${CSCRATCH}/legacysim/dr9/data/
-  ln -s /global/cfs/cdirs/cosmo/work/legacysurvey/dr9/images/ ${CSCRATCH}/legacysim/dr9/data/
+  mkdir -p ${PSCRATCH}/legacysim/dr9/data/
+  cp /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/ccds-annotated-* ${PSCRATCH}/legacysim/dr9/data/
+  cp /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/survey-* ${PSCRATCH}/legacysim/dr9/data/
+  ln -s /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/calib/ ${PSCRATCH}/legacysim/dr9/data/
+  ln -s /global/cfs/cdirs/cosmo/work/legacysurvey/dr9/images/ ${PSCRATCH}/legacysim/dr9/data/
 
 Pull Docker image::
 
@@ -45,23 +45,23 @@ Run::
 Check everything ran and match::
 
   shifter --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 /bin/bash
-  python /src/legacysim/py/legacysim/scripts/check.py --outdir ${CSCRATCH}/legacysim/dr9/SV3/north --list runlist_north.txt --write-list runlist_north_2.txt
-  python /src/legacysim/py/legacysim/scripts/check.py --outdir ${CSCRATCH}/legacysim/dr9/SV3/south --list runlist_south.txt --write-list runlist_south_2.txt
-  python /src/legacysim/py/legacysim/scripts/match.py --cat-dir ${CSCRATCH}/legacysim/dr9/SV3/north/file0_rs0_skip0/merged --outdir ${CSCRATCH}/legacysim/dr9/SV3/north --plot-hist plots/hist_north.png
-  python /src/legacysim/py/legacysim/scripts/match.py --cat-dir ${CSCRATCH}/legacysim/dr9/SV3/south/file0_rs0_skip0/merged --outdir ${CSCRATCH}/legacysim/dr9/SV3/south --plot-hist plots/hist_south.png
+  python /src/legacysim/py/legacysim/scripts/check.py --outdir ${PSCRATCH}/legacysim/dr9/SV3/north --list runlist_north.txt --write-list runlist_north_2.txt
+  python /src/legacysim/py/legacysim/scripts/check.py --outdir ${PSCRATCH}/legacysim/dr9/SV3/south --list runlist_south.txt --write-list runlist_south_2.txt
+  python /src/legacysim/py/legacysim/scripts/match.py --cat-dir ${PSCRATCH}/legacysim/dr9/SV3/north/file0_rs0_skip0/merged --outdir ${PSCRATCH}/legacysim/dr9/SV3/north --plot-hist plots/hist_north.png
+  python /src/legacysim/py/legacysim/scripts/match.py --cat-dir ${PSCRATCH}/legacysim/dr9/SV3/south/file0_rs0_skip0/merged --outdir ${PSCRATCH}/legacysim/dr9/SV3/south --plot-hist plots/hist_south.png
   exit
 
 and similarly for south. Other commands::
 
-  python /src/legacysim/py/legacysim/scripts/merge.py --filetype injected --cat-dir $CSCRATCH/legacysim/dr9/SV3/north/file0_rs0_skip0/merged --outdir $CSCRATCH/legacysim/dr9/SV3/north
-  python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --cat-dir $CSCRATCH/legacysim/dr9/SV3/north/file0_rs0_skip0/merged --outdir $CSCRATCH/legacysim/dr9/SV3/north
-  python /src/legacysim/py/legacysim/scripts/merge.py --filetype injected --cat-dir $CSCRATCH/legacysim/dr9/SV3/south/file0_rs0_skip0/merged --outdir $CSCRATCH/legacysim/dr9/SV3/south
-  python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --cat-dir $CSCRATCH/legacysim/dr9/SV3/south/file0_rs0_skip0/merged --outdir $CSCRATCH/legacysim/dr9/SV3/south
-  python /src/legacysim/py/legacysim/scripts/match.py --tractor-legacypipe /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/south/ --outdir $CSCRATCH/legacysim/dr9/SV3/south --cat-fn $CSCRATCH/legacysim/dr9/SV3/south/file0_rs0_skip0/merged/matched_legacypipe_input.fits
-  python /src/legacysim/py/legacysim/scripts/cutout.py --outdir $CSCRATCH/legacysim/dr9/SV3/south --plot-fn "plots/cutout_south-%(brickname)s-%(icut)d.png" --ncuts 2
-  python /src/legacysim/py/legacysim/scripts/resources.py --outdir $CSCRATCH/legacysim/dr9/SV3/south --plot-fn plots/resources-summary_south.png
+  python /src/legacysim/py/legacysim/scripts/merge.py --filetype injected --cat-dir $PSCRATCH/legacysim/dr9/SV3/north/file0_rs0_skip0/merged --outdir $PSCRATCH/legacysim/dr9/SV3/north
+  python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --cat-dir $PSCRATCH/legacysim/dr9/SV3/north/file0_rs0_skip0/merged --outdir $PSCRATCH/legacysim/dr9/SV3/north
+  python /src/legacysim/py/legacysim/scripts/merge.py --filetype injected --cat-dir $PSCRATCH/legacysim/dr9/SV3/south/file0_rs0_skip0/merged --outdir $PSCRATCH/legacysim/dr9/SV3/south
+  python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --cat-dir $PSCRATCH/legacysim/dr9/SV3/south/file0_rs0_skip0/merged --outdir $PSCRATCH/legacysim/dr9/SV3/south
+  python /src/legacysim/py/legacysim/scripts/match.py --tractor-legacypipe /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/south/ --outdir $PSCRATCH/legacysim/dr9/SV3/south --cat-fn $PSCRATCH/legacysim/dr9/SV3/south/file0_rs0_skip0/merged/matched_legacypipe_input.fits
+  python /src/legacysim/py/legacysim/scripts/cutout.py --outdir $PSCRATCH/legacysim/dr9/SV3/south --plot-fn "plots/cutout_south-%(brickname)s-%(icut)d.png" --ncuts 2
+  python /src/legacysim/py/legacysim/scripts/resources.py --outdir $PSCRATCH/legacysim/dr9/SV3/south --plot-fn plots/resources-summary_south.png
 
 Merge legacypipe catalogs::
 
-    shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --source legacypipe --list runlist_north.txt --cat-dir $CSCRATCH/legacypipe/dr9/SV3/north/merged --outdir $LEGACYPIPE_SURVEY_DIR/north/
-    shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --source legacypipe --list runlist_south.txt --cat-dir $CSCRATCH/legacypipe/dr9/SV3/south/merged --outdir $LEGACYPIPE_SURVEY_DIR/south/
+    shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --source legacypipe --list runlist_north.txt --cat-dir $PSCRATCH/legacypipe/dr9/SV3/north/merged --outdir $LEGACYPIPE_SURVEY_DIR/north/
+    shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --source legacypipe --list runlist_south.txt --cat-dir $PSCRATCH/legacypipe/dr9/SV3/south/merged --outdir $LEGACYPIPE_SURVEY_DIR/south/
