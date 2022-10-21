@@ -65,17 +65,20 @@ Merge legacypipe catalogs::
 
     shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --source legacypipe --list runlist_north.txt --cat-dir $PSCRATCH/legacypipe/dr9/Y1/north/merged --outdir $LEGACYPIPE_SURVEY_DIR/north/
     shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 python /src/legacysim/py/legacysim/scripts/merge.py --filetype tractor --source legacypipe --list runlist_south.txt --cat-dir $PSCRATCH/legacypipe/dr9/Y1/south/merged --outdir $LEGACYPIPE_SURVEY_DIR/south/
+    
+======
 
+Job array runs
 --------
-Job array runs:
-first create subrunlists and take note of how many subrunlists are created::
+
+First create subrunlists and take note of how many subrunlists are created::
 
     python create_subrunlists.py --run north --filename runlist_north.txt --index 1
     
 .. note::
 
-  Must have created first runlist, i.e. `runlist_north.txt`. Also, check that correct runlist is specficied in settings_runname.py file,
-  for example `runlist_fn = 'runlist_{}.txt'.format(run)` . 
+  Must have created first runlist, i.e. runlist_north.txt. Also, check that correct runlist is specficied in settings_runname.py file,
+  for example `runlist_fn = 'runlist_north.txt'.format(run)`. 
     
 Now in the settings_runname.py change the INDEX of the run (reference below), for example if you are in the first run the use INDEX of 1::
 
