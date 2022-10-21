@@ -7,12 +7,12 @@ truth_fn = os.path.join(os.getenv('PSCRATCH'),'legacysim','dr9','data','truth_co
 injected_fn = os.path.join(output_dir,'file0_rs0_skip0','injected.fits')
 bricklist_fn = 'bricklist_{}.txt'.format(run)
 #runlist_fn = 'runlist_{}.txt'.format(run)
-runlist_fn = 'runlist_{}_3.txt'.format(run)
+runlist_fn = 'runlist_{}_5.txt'.format(run)
 #runlist_fn = 'runlist_{}_tmp.txt'.format(run)
 
 # for subrunlist runs
 subrunlist_dir = os.path.join('subrunlists',f'{run}') # AJRM
-subrunlist_fn = os.path.join(subrunlist_dir,'subrunlist!_{}_1.txt'.format(run)) # AJRM
+subrunlist_fn = os.path.join(subrunlist_dir,'subrunlist!_{}_3.txt'.format(run)) # AJRM
 
 
 def get_bricknames():
