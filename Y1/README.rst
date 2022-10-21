@@ -69,29 +69,35 @@ Merge legacypipe catalogs::
 --------
 Job array runs:
 first create subrunlists and take note of how many subrunlists are created::
+
     python create_subrunlists.py --run north --filename runlist_north.txt --index 1
+    
 .. note::
 
   Must have created first runlist, i.e. `runlist_north.txt`. Also, check that correct runlist is specficied in settings_runname.py file,
-  for example::
-    runlist_fn = 'runlist_{}.txt'.format(run)
+  for example `runlist_fn = 'runlist_{}.txt'.format(run)` . 
     
 Now in the settings_runname.py change the INDEX of the run (reference below), for example if you are in the first run the use INDEX of 1::
+
     subrunlist_fn = os.path.join(subrunlist_dir,'subrunlist!_{}_INDEX.txt'.format(run))
    
 Modify the --array=1-N argument in the `job_array.sh` file, where N is the number of subarrays created in the orevious step. Also notice
 that you can change the -o  and -e arguments to desired directories, change. according to region. Then run::
+
     chmod u+x ./mpi_runbricks_runlist.sh
     sbatch job_array.sh
     
 After the run has finished change the INDEX in the `subrunlist_fn` in the `settings_runname.py` to reflect the following run, for example change from 1 to 2.
 
 Now you have to create an updated runlist (run indices are to be changed to corresponding run, i.e. change the 2 according to run)::
+
     shifter --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 /bin/bash
     python /src/legacysim/py/legacysim/scripts/check.py --outdir ${PSCRATCH}/legacysim/dr9/Y1/north --list runlist_north.txt --write-list runlist_north_2.txt
     
 Change the `runlist_fn` in the `settings_runname.py` to this new runlist created above. Now create new subrunlists::
+
     python create_subrunlists.py --run region --filename runlist_north_2.txt --index 2
+    
 Again modify --array option in `run_job.sh` and run. If bricks are taking too much time you can change -t 01:00:00 to -t 02:00:00.
 
     
