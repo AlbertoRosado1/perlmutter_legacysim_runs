@@ -8,7 +8,7 @@ parser.add_argument('-r','--run',type=str,choices=['north','south'],required=Tru
 opt = parser.parse_args()
 
 fn_DA02 = os.path.join(f'/global/homes/a/arosado/perlmutter_legacysim_runs/Y1/DA02_bricklists/bricklist_{opt.run}.txt')
-fn_Y1 = os.path.join(f'/global/homes/a/arosado/perlmutter_legacysim_runs/Y1/runlist_{opt.run}_3.txt')
+fn_Y1 = os.path.join(f'/global/homes/a/arosado/perlmutter_legacysim_runs/Y1/runlist_{opt.run}_stages.txt')
 
 # Read txt files
 with open(fn_Y1, 'r') as file:
@@ -30,4 +30,4 @@ for brick in text_to_remove:
 print(f'removed {len(text) - len(new_text)}')
 
 # save remaining bricks to file
-np.savetxt(f'runlist_{opt.run}_3_new.txt', new_text, newline='', fmt='%s')
+np.savetxt(f'runlist_{opt.run}_new.txt', new_text, newline='', fmt='%s')

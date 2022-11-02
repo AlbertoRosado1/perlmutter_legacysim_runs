@@ -1,1 +1,5 @@
 **/*.err
+**/*.out
+Y1/subrunlists/south_old/*
+Y1/subrunlists/south/*
+Y1/subrunlists/north/*

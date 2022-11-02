@@ -84,10 +84,10 @@ Now in the settings_runname.py change the INDEX of the run (reference below), fo
 
     subrunlist_fn = os.path.join(subrunlist_dir,'subrunlist!_{}_INDEX.txt'.format(run))
    
-Modify the --array=1-N argument in the `job_array.sh` file, where N is the number of subarrays created in the orevious step. Also notice
+Modify the --array=1-N argument in the `job_array.sh` file, where N is the number of subarrays created in the previous step. Also notice
 that you can change the -o  and -e arguments to desired directories, change. according to region. Then run::
 
-    chmod u+x ./mpi_runbricks_runlist.sh
+    chmod u+x ./mpi_runbricks_subrunlist.sh
     sbatch job_array.sh
     
 After the run has finished change the INDEX in the `subrunlist_fn` in the `settings_runname.py` to reflect the following run, for example change from 1 to 2.
@@ -101,6 +101,6 @@ Change the `runlist_fn` in the `settings_runname.py` to this new runlist created
 
     python create_subrunlists.py --run region --filename runlist_north_2.txt --index 2
     
-Again modify --array option in `run_job.sh` and run. If bricks are taking too much time you can change -t 01:00:00 to -t 02:00:00.
+Again modify `settings_runname.py` and the --array option in `run_job.sh` and run. If bricks are taking too much time you can change -t 01:00:00 to -t 02:00:00.
 
     
