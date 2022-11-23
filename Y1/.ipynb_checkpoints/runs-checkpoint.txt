@@ -1,0 +1,10 @@
+SOUTH runs
+First runlist with DA02 bricks removed. We also removed bricks that were in dr9-m33.
+runlist_south_new.txt
+
+run 2:
+    runlist_south_2.txt then divided into --array=1-1455%50, 1hr.
+
+run 3:
+    runlist_south_3.txt then divided into --array=1-1213%50, 1hr. NOT RUNNED YET, NO COMPUTING HOURS cancelled at job 634
+        

@@ -1,0 +1,7 @@
+#stages0 = writecat:docker:DR9.6.2
+#stages1 = srcs:docker:DR9.6.2 writecat:docker:DR9.6.5
+0933p657 file0_rs0_skip0 stages0
+0948p590 file0_rs0_skip0 stages0
+1347p480 file0_rs0_skip0 stages0
+2068p492 file0_rs0_skip0 stages0
+2883p677 file0_rs0_skip0 stages1

@@ -1,0 +1,246 @@
+arosado@login14:/global/u2/a/arosado/perlmutter_legacysim_runs/Y1> source legacypipe-env.sh
+arosado@login14:/global/u2/a/arosado/perlmutter_legacysim_runs/Y1> shifter --volume ${HOME}:/homedir/ --image=adematti/legacysim:DR9 python /src/legacysim/py/legacysim/scripts/runlist.py --outdir /global/cfs/cdirs/cosmo/data/legacysurvey/dr9/south --brick bricklist_south.txt --write-list runlist_south.txt --modules docker
+10-31 06:28  legacysim.catalog INFO     Reading brick list bricklist_south.txt
+Traceback (most recent call last):
+  File "/src/legacysim/py/legacysim/scripts/runlist.py", line 68, in <module>
+    main(force_write=True)
+  File "/src/legacysim/py/legacysim/scripts/runlist.py", line 47, in main
+    istages = runcat.append_stages(environment.get_stages_versions(opt.modules))
+  File "/src/legacysim/py/legacysim/batch/environment_manager.py", line 262, in get_stages_versions
+    stages = Stages([(last_stage,get_stage_versions(last_stage))])
+  File "/src/legacysim/py/legacysim/batch/environment_manager.py", line 254, in get_stage_versions
+    return Versions(**{module:self.get_module_version(module,stage) for module in modules})
+  File "/src/legacysim/py/legacysim/batch/environment_manager.py", line 254, in <dictcomp>
+    return Versions(**{module:self.get_module_version(module,stage) for module in modules})
+  File "/src/legacysim/py/legacysim/batch/environment_manager.py", line 222, in get_module_version
+    raise ValueError('Could not find matching %s version for stage %s and modules %s in header: %s' % (module,stage,list(modules),self.header))
+ValueError: Could not find matching docker version for stage writecat and modules ['astrometry', 'tractor', 'legacypipe'] in header: 
+SIMPLE  =                    T / file does conform to FITS standard
+BITPIX  =                   16 / number of bits per data pixel
+NAXIS   =                    0 / number of data axes
+EXTEND  =                    T / FITS dataset may contain extensions
+COMMENT   and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H
+COMMENT Data product of the DESI Imaging Legacy Surveys
+COMMENT Full documentation at http://legacysurvey.org
+COMMENT DCHISQ array model names
+LEGPIPEV= 'dr9-m33-3-g9eca091c' / legacypipe git version
+LSDIR   = '/global/cfs/cdirs/cosmo/work/legacysurvey/dr9m' / $LEGACY_SURVEY_DIR
+LSDR    = 'DR9'                / Data release number
+RUNDATE = '2020-11-23T14:59:13.424896' / runbrick.py run time
+SURVEY  = 'DECaLS+BASS+MzLS'   / The LegacySurveys
+SURVEYID= 'DECaLS BASS MzLS'   / Survey names
+DRVERSIO=                 9010 / LegacySurveys Data Release number
+OBSTYPE = 'object'             / Observation type
+PROCTYPE= 'tile'               / Processing type
+NODENAME= 'nid00118'           / Machine where script was run
+HOSTNAME= 'cori'               / NERSC machine where script was run
+JOB_ID  = '36549483'           / SLURM job id
+ARRAY_ID= 'none'               / SLURM job array id
+UNWISD1 = '/global/cfs/cdirs/cosmo/work/wise/outputs/merge/neo6/fulldepth' / 
+UNWISD2 = '/global/cfs/cdirs/cosmo/data/unwise/allwise/unwise-coadds/fulldepth''
+UNWISTD = '/global/cfs/cdirs/cosmo/work/wise/outputs/merge/neo6' / 
+UNWISSKY= '/global/cfs/cdirs/cosmo/work/wise/unwise_catalog/dr3/mod' / 
+DEPNAM00= 'astrometry'         / 
+DEPVER00= '0.84'               / 
+DEPNAM01= 'astropy'            / 
+DEPVER01= '4.0.1.post1'        / 
+DEPNAM02= 'fitsio'             / 
+DEPVER02= '1.1.2'              / 
+DEPNAM03= 'matplotlib'         / 
+DEPVER03= '3.3.2'              / 
+DEPNAM04= 'mkl_fft'            / 
+DEPVER04= '1.1.0'              / 
+DEPNAM05= 'numpy'              / 
+DEPVER05= '1.18.5'             / 
+DEPNAM06= 'photutils'          / 
+DEPVER06= '1.0.1'              / 
+DEPNAM07= 'scipy'              / 
+DEPVER07= '1.4.1'              / 
+DEPNAM08= 'tractor'            / 
+DEPVER08= 'dr9.4'              / 
+DEPNAM09= 'unwise_psf'         / 
+DEPVER09= 'dr9.3'              / 
+DEPNAM10= 'LARGEGALAXIES_CAT'  / 
+DEPVER10= '/global/cfs/cdirs/cosmo/staging/largegalaxies/v3.2/SGA-ellipse-v3.2.'
+DEPNAM11= 'LARGEGALAXIES_VER'  / 
+DEPVER11= 'L3'                 / 
+DEPNAM12= 'LARGEGALAXIES_PREBURN' / 
+DEPVER12=                    T / 
+DEPNAM13= 'TYCHO2_KD'          / 
+DEPVER13= '/global/cfs/cdirs/cosmo/staging/tycho2' / 
+DEPNAM14= 'GAIA_CAT'           / 
+DEPVER14= '/global/cfs/cdirs/cosmo/work/gaia/chunks-gaia-dr2-astrom-2' / 
+DEPNAM15= 'SKY_TEMPLATE'       / 
+DEPVER15= '/global/cfs/cdirs/cosmo/work/legacysurvey/dr9m/calib/sky_pattern' / 
+DEPNAM16= 'galex'              / 
+DEPVER16= '/global/cfs/cdirs/cosmo/data/galex/images' / 
+DEPNAM17= 'unwise'             / 
+DEPVER17= '/global/cfs/cdirs/cosmo/work/wise/outputs/merge/neo6/fulldepth:/glob'
+DEPNAM18= 'unwise_tr'          / 
+DEPVER18= '/global/cfs/cdirs/cosmo/work/wise/outputs/merge/neo6' / 
+DEPNAM19= 'unwise_modelsky'    / 
+DEPVER19= '/global/cfs/cdirs/cosmo/work/wise/unwise_catalog/dr3/mod' / 
+CMDLINE = 'legacypipe/runbrick.py --run south --release 9010 --brick 0223p300 -'
+BRICK   = '0223p300'           / LegacySurveys brick RRRr[pm]DDd
+BRICKID =               495759 / LegacySurveys brick id
+RAMIN   =               22.176 / Brick RA min (deg)
+RAMAX   =               22.464 / Brick RA max (deg)
+DECMIN  =               29.875 / Brick Dec min (deg)
+DECMAX  =               30.125 / Brick Dec max (deg)
+RA      = '01:29:16.800'       / Brick center RA (hms)
+DEC     = '+30:00:00.000'      / Brick center DEC (dms)
+CENTRA  =                22.32 / Brick center RA (deg)
+CENTDEC =                 30.0 / Brick center Dec (deg)
+CORN1RA =     22.4710240991258 / Brick corner RA (deg)
+CORN1DEC=     29.8689506585673 / Brick corner Dec (deg)
+CORN2RA =     22.1689759008742 / Brick corner RA (deg)
+CORN2DEC=     29.8689506585673 / Brick corner Dec (deg)
+CORN3RA =     22.1685767701885 / Brick corner RA (deg)
+CORN3DEC=     30.1308765123246 / Brick corner Dec (deg)
+CORN4RA =     22.4714232298115 / Brick corner RA (deg)
+CORN4DEC=     30.1308765123246 / Brick corner Dec (deg)
+VER_TIMS= 'dr9-m33-3-g9eca091c' / 
+BRICK_G =                    T / Does band g touch this brick?
+CAMS_G  = 'decam'              / Cameras contributing band g
+BRICK_R =                    T / Does band r touch this brick?
+CAMS_R  = 'decam'              / Cameras contributing band r
+BRICK_Z =                    T / Does band z touch this brick?
+CAMS_Z  = 'decam'              / Cameras contributing band z
+BANDS   = 'grz'                / Bands touching this brick
+NBANDS  =                    3 / Number of bands in this catalog
+BAND0   = 'g'                  / Band name in this catalog
+BAND1   = 'r'                  / Band name in this catalog
+BAND2   = 'z'                  / Band name in this catalog
+VER_REFS= 'dr9-m33-3-g9eca091c' / 
+VER_OUTL= 'dr9-m33-3-g9eca091c' / 
+OUTLIER =                    T / 
+VER_HALO= 'dr9-m33-3-g9eca091c' / 
+VER_SRCS= 'dr9-m33-3-g9eca091c' / 
+VER_FITB= 'dr9-m33-3-g9eca091c' / 
+GALFRPSF=                    T / 
+LESSMASK=                    F / 
+COMMENT maskbits bits:
+DCHISQ_0= 'PSF'                / 
+DCHISQ_1= 'REX'                / 
+DCHISQ_2= 'DEV'                / 
+DCHISQ_3= 'EXP'                / 
+DCHISQ_4= 'SER'                / 
+VER_COAD= 'dr9-m33-3-g9eca091c' / 
+COMMENT fitbits bits:
+MB_NPRIM=                    1 / maskbits: not primary brick area
+MB_BRIGH=                    2 / maskbits: bright star nearby
+MB_SAT_G=                    4 / maskbits: g band saturated
+MB_SAT_R=                    8 / maskbits: r band saturated
+MB_SAT_Z=                   16 / maskbits: z band saturated
+MB_ALL_G=                   32 / maskbits: any ALLMASK_G bit set
+MB_ALL_R=                   64 / maskbits: any ALLMASK_R bit set
+MB_ALL_Z=                  128 / maskbits: any ALLMASK_Z bit set
+MB_WISE1=                  256 / maskbits: WISE W1 (all masks)
+MB_WISE2=                  512 / maskbits: WISE W2 (all masks)
+MB_BAIL =                 1024 / maskbits: Bailed out processing
+MB_MED  =                 2048 / maskbits: medium-bright star
+MB_GAL  =                 4096 / maskbits: SGA large galaxy
+MB_CLUST=                 8192 / maskbits: Globular cluster
+MBIT_0  = 'NPRIMARY'           / maskbits bit 0 (0x1): not primary brick area
+MBIT_1  = 'BRIGHT'             / maskbits bit 1 (0x2): bright star nearby
+MBIT_2  = 'SATUR_G'            / maskbits bit 2 (0x4): g band saturated
+MBIT_3  = 'SATUR_R'            / maskbits bit 3 (0x8): r band saturated
+MBIT_4  = 'SATUR_Z'            / maskbits bit 4 (0x10): z band saturated
+MBIT_5  = 'ALLMASK_G'          / maskbits bit 5 (0x20): any ALLMASK_G bit set
+MBIT_6  = 'ALLMASK_R'          / maskbits bit 6 (0x40): any ALLMASK_R bit set
+MBIT_7  = 'ALLMASK_Z'          / maskbits bit 7 (0x80): any ALLMASK_Z bit set
+MBIT_8  = 'WISEM1'             / maskbits bit 8 (0x100): WISE W1 (all masks)
+MBIT_9  = 'WISEM2'             / maskbits bit 9 (0x200): WISE W2 (all masks)
+MBIT_10 = 'BAILOUT'            / maskbits bit 10 (0x400): Bailed out processing
+MBIT_11 = 'MEDIUM'             / maskbits bit 11 (0x800): medium-bright star
+MBIT_12 = 'GALAXY'             / maskbits bit 12 (0x1000): SGA large galaxy
+MBIT_13 = 'CLUSTER'            / maskbits bit 13 (0x2000): Globular cluster
+COMMENT wisemask bits:
+FB_FPSF =                    1 / fitbits: forced to be PSF
+FB_FITBG=                    2 / fitbits: background levels fit
+FB_RLIM =                    4 / fitbits: hit radius limit during fit
+FB_SLIM =                    8 / fitbits: hit Sersic index limit during fit
+FB_FROZE=                   16 / fitbits: parameters were not fit
+FB_BRITE=                   32 / fitbits: bright star
+FB_MED  =                   64 / fitbits: medium-bright star
+FB_GAIA =                  128 / fitbits: Gaia source
+FB_TYCHO=                  256 / fitbits: Tycho-2 star
+FB_LGAL =                  512 / fitbits: SGA large galaxy
+FB_WALK =                 1024 / fitbits: fitting moved pos > 1 arcsec
+FB_RUN  =                 2048 / fitbits: fitting moved pos > 2.5 arcsec
+FB_GPSF =                 4096 / fitbits: Gaia source treated as point source
+FB_ITER =                 8192 / fitbits: source detected during iterative detec
+FBIT_0  = 'FORCED_POINTSOURCE' / fitbits bit 0 (0x1): forced to be PSF
+FBIT_1  = 'FIT_BACKGROUND'     / fitbits bit 1 (0x2): background levels fit
+FBIT_2  = 'HIT_RADIUS_LIMIT'   / fitbits bit 2 (0x4): hit radius limit during fi
+FBIT_3  = 'HIT_SERSIC_LIMIT'   / fitbits bit 3 (0x8): hit Sersic index limit dur
+FBIT_4  = 'FROZEN'             / fitbits bit 4 (0x10): parameters were not fit
+FBIT_5  = 'BRIGHT'             / fitbits bit 5 (0x20): bright star
+FBIT_6  = 'MEDIUM'             / fitbits bit 6 (0x40): medium-bright star
+FBIT_7  = 'GAIA'               / fitbits bit 7 (0x80): Gaia source
+FBIT_8  = 'TYCHO2'             / fitbits bit 8 (0x100): Tycho-2 star
+FBIT_9  = 'LARGEGALAXY'        / fitbits bit 9 (0x200): SGA large galaxy
+FBIT_10 = 'WALKER'             / fitbits bit 10 (0x400): fitting moved pos > 1 a
+FBIT_11 = 'RUNNER'             / fitbits bit 11 (0x800): fitting moved pos > 2.5
+FBIT_12 = 'GAIA_POINTSOURCE'   / fitbits bit 12 (0x1000): Gaia source treated as
+FBIT_13 = 'ITERATIVE'          / fitbits bit 13 (0x2000): source detected during
+VER_WISE= 'dr9-m33-3-g9eca091c' / 
+VER_WCAT= 'dr9-m33-3-g9eca091c' / 
+COMMENT allmask/anymask bits:
+WB_BRIGH=                    1 / WISE mask bit 0: BRIGHT, Bright star core/wings
+WB_SPIKE=                    2 / WISE mask bit 1: SPIKE, PSF-based diffraction s
+WB_GHOST=                    4 / WISE mask bit 2: GHOST, Optical ghost
+WB_LATNT=                    8 / WISE mask bit 3: LATENT, First latent
+WB_LATN2=                   16 / WISE mask bit 4: LATENT2, Second latent image
+WB_HALO =                   32 / WISE mask bit 5: HALO, AllWISE-like circular ha
+WB_SATUR=                   64 / WISE mask bit 6: SATUR, Bright star saturation
+WB_SPIK2=                  128 / WISE mask bit 7: SPIKE2, Geometric diffraction
+WBIT_0  = 'BRIGHT'             / WISE: Bright star core/wings
+WBIT_1  = 'SPIKE'              / WISE: PSF-based diffraction spike
+WBIT_2  = 'GHOST'              / WISE: Optical ghost
+WBIT_3  = 'LATENT'             / WISE: First latent
+WBIT_4  = 'LATENT2'            / WISE: Second latent image
+WBIT_5  = 'HALO'               / WISE: AllWISE-like circular halo
+WBIT_6  = 'SATUR'              / WISE: Bright star saturation
+WBIT_7  = 'SPIKE2'             / WISE: Geometric diffraction spike
+COMMENT   FITS (Flexible Image Transport System) format is defined in 'Astronomy
+AM_BADPI=                    1 / ALLMASK/ANYMASK bit 2**0
+AM_SATUR=                    2 / ALLMASK/ANYMASK bit 2**1
+AM_INTER=                    4 / ALLMASK/ANYMASK bit 2**2
+AM_CR   =                   16 / ALLMASK/ANYMASK bit 2**4
+AM_BLEED=                   64 / ALLMASK/ANYMASK bit 2**6
+AM_TRANS=                  128 / ALLMASK/ANYMASK bit 2**7
+AM_EDGE =                  256 / ALLMASK/ANYMASK bit 2**8
+AM_EDGE2=                  512 / ALLMASK/ANYMASK bit 2**9
+AM_OUTLI=                 2048 / ALLMASK/ANYMASK bit 2**11
+ABIT_0  = 'badpix'             / ALLMASK/ANYMASK bit 2**0=1 meaning
+ABIT_1  = 'satur'              / ALLMASK/ANYMASK bit 2**1=2 meaning
+ABIT_2  = 'interp'             / ALLMASK/ANYMASK bit 2**2=4 meaning
+ABIT_4  = 'cr'                 / ALLMASK/ANYMASK bit 2**4=16 meaning
+ABIT_6  = 'bleed'              / ALLMASK/ANYMASK bit 2**6=64 meaning
+ABIT_7  = 'trans'              / ALLMASK/ANYMASK bit 2**7=128 meaning
+ABIT_8  = 'edge'               / ALLMASK/ANYMASK bit 2**8=256 meaning
+ABIT_9  = 'edge2'              / ALLMASK/ANYMASK bit 2**9=512 meaning
+ABIT_11 = 'outlier'            / ALLMASK/ANYMASK bit 2**11=2048 meaning
+PRODTYPE= 'catalog'            / NOAO data product type
+COSKY_G = -1.0774328984553e-05 / Sky level estimated (+subtracted) from coadd
+COSKY_R = -3.12625052174553e-05 / Sky level estimated (+subtracted) from coadd
+COSKY_Z =  7.5341304182075e-05 / Sky level estimated (+subtracted) from coadd
+APRAD0  =                  0.5 / (optical) Aperture radius, in arcsec
+APRAD1  =                 0.75 / (optical) Aperture radius, in arcsec
+APRAD2  =                  1.0 / (optical) Aperture radius, in arcsec
+APRAD3  =                  1.5 / (optical) Aperture radius, in arcsec
+APRAD4  =                  2.0 / (optical) Aperture radius, in arcsec
+APRAD5  =                  3.5 / (optical) Aperture radius, in arcsec
+APRAD6  =                  5.0 / (optical) Aperture radius, in arcsec
+APRAD7  =                  7.0 / (optical) Aperture radius, in arcsec
+WAPRAD0 =                  3.0 / (unWISE) Aperture radius, in arcsec
+WAPRAD1 =                  5.0 / (unWISE) Aperture radius, in arcsec
+WAPRAD2 =                  7.0 / (unWISE) Aperture radius, in arcsec
+WAPRAD3 =                  9.0 / (unWISE) Aperture radius, in arcsec
+WAPRAD4 =                 11.0 / (unWISE) Aperture radius, in arcsec
+WISEAB1 =                2.699 / WISE Vega to AB conv for band 1
+WISEAB2 =                3.339 / WISE Vega to AB conv for band 2
+WISEAB3 =                5.174 / WISE Vega to AB conv for band 3
+WISEAB4 =                 6.62 / WISE Vega to AB conv for band 4
+arosado@login14:/global/u2/a/arosado/perlmutter_legacysim_runs/Y1> 

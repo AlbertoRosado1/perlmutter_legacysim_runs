@@ -4,6 +4,7 @@
 import argparse
 import os
 import numpy as np
+from math import ceil
 
 parser = argparse.ArgumentParser(description='create subrunlists from a single runlist')
 parser.add_argument('-r','--run',type=str,choices=['north','south'],required=True,help='Run?')
@@ -33,7 +34,8 @@ with open(fn_Y1, 'r') as file:
     text_no_header = text[h_end_ind:]
 
 # now split into opt.narrays samples
-nsplit = int(len(text_no_header)/32) # should give roughly the number of subarrays so each contains approx 32 bricks.
+nbricks_per_array = 16*4
+nsplit = ceil(len(text_no_header)/nbricks_per_array) # should give roughly the number of subarrays so each contains approx nbricks_per_array.
 brick_arrays = np.array_split(text_no_header, nsplit)#opt.narrays) 
 
 # add back header and save to .txt file

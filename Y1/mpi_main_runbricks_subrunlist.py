@@ -42,7 +42,8 @@ with TaskManager(ntasks=ntasks) as tm:
                         #'--write-stage',stage, # AJRM commented out to not write pickles
                         '--no-write', # AJRM do not write pickles
                         '--write-log','--ps','--ps-t0',int(time.time()),'--stage',stage,
-                        '--env-header',legacypipe_fn,';']
+                        '--env-header',legacypipe_fn,
+                        '--env-replace-dir','/global/cfs/cdirs/cosmo/:/dvs_ro/cfs/cdirs/cosmo/',';'] # AJRM Arnaud added option to change dir
 
         #print(command)
         output = run_shell(command[:-1])
