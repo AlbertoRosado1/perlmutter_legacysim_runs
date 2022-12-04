@@ -13,6 +13,8 @@ Set up data::
   cp /dvs_ro/cfs/cdirs/cosmo/data/legacysurvey/dr9/survey-* ${PSCRATCH}/legacysim/dr9/data/
   ln -s /dvs_ro/cfs/cdirs/cosmo/data/legacysurvey/dr9/calib/ ${PSCRATCH}/legacysim/dr9/data/
   ln -s /dvs_ro/cfs/cdirs/cosmo/work/legacysurvey/dr9/images/ ${PSCRATCH}/legacysim/dr9/data/
+  
+Please make change in ``legacypipe_env.sh``, change ``export LEGACY_SURVEY_DIR=/your_pscratch_dir/legacysim/dr9/data/``.
 
 Pull Docker image::
 
