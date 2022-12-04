@@ -1,0 +1,14 @@
+import os
+
+run = 'north'
+survey_dir = os.getenv('LEGACY_SURVEY_DIR')
+output_dir = os.path.join(os.getenv('PSCRATCH'),'legacysim','dr9','Y1','test')
+truth_fn = os.path.join(os.getenv('PSCRATCH'),'legacysim','dr9','data','truth_cosmos_deep.fits')
+injected_fn = os.path.join(output_dir,'file0_rs0_skip0','injected.fits')
+bricklist_fn = 'bricklist_{}.txt'.format('test')
+runlist_fn = 'runlist_{}.txt'.format('test')
+
+def get_bricknames():
+    return [brickname[:-len('\n')] for brickname in open(bricklist_fn,'r')]
+
+legacypipe_output_dir = os.path.join(os.getenv('LEGACYPIPE_SURVEY_DIR'),run)
