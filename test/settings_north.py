@@ -3,8 +3,8 @@ import os
 run = 'north'
 survey_dir = os.getenv('LEGACY_SURVEY_DIR')
 output_dir = os.path.join(os.getenv('PSCRATCH'),'legacysim','dr9','TEST',run)
-truth_fn = "/pscratch/sd/a/arosado/legacysim_test_files/truth_cosmos_deep.fits"
-injected_fn = "/pscratch/sd/a/arosado/legacysim_test_files/injected.fits"
+truth_fn = "/dvs_ro/cfs/projectdirs/desi/users/arosado/legacysim_test_files/truth_cosmos_deep.fits"
+injected_fn = "/dvs_ro/cfs/projectdirs/desi/users/arosado/legacysim_test_files/injected.fits"
 bricklist_fn = 'bricklist_{}.txt'.format(run)
 runlist_fn = 'runlist_{}.txt'.format(run)
 
