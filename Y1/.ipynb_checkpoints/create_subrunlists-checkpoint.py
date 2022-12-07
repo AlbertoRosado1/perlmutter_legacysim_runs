@@ -34,7 +34,7 @@ with open(fn_Y1, 'r') as file:
     text_no_header = text[h_end_ind:]
 
 # now split into opt.narrays samples
-nbricks_per_array = 16*4
+nbricks_per_array = 16*10 #4
 nsplit = ceil(len(text_no_header)/nbricks_per_array) # should give roughly the number of subarrays so each contains approx nbricks_per_array.
 brick_arrays = np.array_split(text_no_header, nsplit)#opt.narrays) 
 

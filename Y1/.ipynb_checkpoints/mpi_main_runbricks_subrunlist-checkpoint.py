@@ -31,19 +31,20 @@ with TaskManager(ntasks=ntasks) as tm:
 
         command = []
         for stage,versions in run.stages.items():
-            pythonpath = 'PYTHONPATH=%s' % get_pythonpath(module_dir='/src/',versions=versions,full=True,as_string=True)
-            command += [pythonpath]
-            command += ['python',runbrick.__file__]
-            command += ['--brick',run.brickname,'--threads',threads,'--outdir',settings.output_dir,'--run',settings.run,
-                        '--injected-fn',settings.injected_fn,'--fileid',run.fileid,'--rowstart',run.rowstart,'--skipid',run.skipid,
-                        '--sim-blobs','--sim-stamp','tractor','--add-sim-noise','poisson','--no-wise',
-                        #'--sim-blobs','--sim-stamp','tractor','--no-wise',
-                        '--skip-calibs',
-                        #'--write-stage',stage, # AJRM commented out to not write pickles
-                        '--no-write', # AJRM do not write pickles
-                        '--write-log','--ps','--ps-t0',int(time.time()),'--stage',stage,
-                        '--env-header',legacypipe_fn,
-                        '--env-replace-dir','/global/cfs/cdirs/cosmo/:/dvs_ro/cfs/cdirs/cosmo/',';'] # AJRM Arnaud added option to change dir
+            if stage=='writecat': # AJRM since I am not writing pickles Arnaud suggested to limit iteration to 'writecat'
+                pythonpath = 'PYTHONPATH=%s' % get_pythonpath(module_dir='/src/',versions=versions,full=True,as_string=True)
+                command += [pythonpath]
+                command += ['python',runbrick.__file__]
+                command += ['--brick',run.brickname,'--threads',threads,'--outdir',settings.output_dir,'--run',settings.run,
+                            '--injected-fn',settings.injected_fn,'--fileid',run.fileid,'--rowstart',run.rowstart,'--skipid',run.skipid,
+                            '--sim-blobs','--sim-stamp','tractor','--add-sim-noise','poisson','--no-wise',
+                            #'--sim-blobs','--sim-stamp','tractor','--no-wise',
+                            '--skip-calibs',
+                            #'--write-stage',stage, # AJRM commented out to not write pickles
+                            '--no-write', # AJRM do not write pickles
+                            '--write-log','--ps','--ps-t0',int(time.time()),'--stage',stage,
+                            '--env-header',legacypipe_fn,
+                            '--env-replace-dir','/global/cfs/cdirs/cosmo/:/dvs_ro/cfs/cdirs/cosmo/',';'] # AJRM Arnaud added option to change dir
 
         #print(command)
         output = run_shell(command[:-1])

@@ -6,5 +6,12 @@ run 2:
     runlist_south_2.txt then divided into --array=1-1455%50, 1hr.
 
 run 3:
-    runlist_south_3.txt then divided into --array=1-1213%50, 1hr. NOT RUNNED YET, NO COMPUTING HOURS cancelled at job 634
+    runlist_south_3.txt then divided into --array=1-1213%50, 1hr. cancelled at job 634 due to cfs issue
+    
+run 4:
+    runlist_south_4.txt then divided into --array=1-483%10, 1hr. Previous subrunlists had 16*4 bricks each. Now they will have 16*10 bricks.
+    
+runs 5: 
+    runlist_south_4.txt I am thinking that it would be better to go back to having subrunlists with less bricks in them. These way avoid bricks that do not complete in an hour from hogging running time. Or, which might be better option, I should right script that reads new runlist and checks if any of the first 16 bricks from the subrunlist did not finish in time.
+    around job 208 I limited loop in mpi_runbricks to use only 'writecat' from stages
         
